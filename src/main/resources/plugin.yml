@@ -1,0 +1,4 @@
+name: CrystalizedBattleRoyale
+version: '1.0-SNAPSHOT'
+main: gg.litestrike.crystalizedBattleRoyale.CrystalizedBattleRoyale
+api-version: '1.21'

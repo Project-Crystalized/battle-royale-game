@@ -2,3 +2,5 @@ name: CrystalizedBattleRoyale
 version: '1.0-SNAPSHOT'
 main: gg.crystalized.crystalizedBattleRoyale.CrystalizedBattleRoyale
 api-version: '1.21'
+commands:
+ test: {}

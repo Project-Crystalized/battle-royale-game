@@ -1,15 +1,32 @@
 messages:
-  warmup-end-message: "<red>Warmup time finished. The PvP is now enabled!"
-  join-game-message: "<aqua>Place the join message here"
-  bossbar-waiting-message: "<green>%time% seconds or %remaining_players% to start the game."
-  starting-phase-message: "<blue>The game will start in 15 seconds, be prepared..."
-  killed-by-player-message: "<white>%killer% <yellow>eliminated <red>%victim%<yellow>."
+  warmup-end: "<red>Warmup time finished. The PvP is now enabled!"
+  grace-period: "<aqua>PvP is disabled now. Loot the chests to get better items."
+  join-game: "<aqua>Place the join message here"
+  bossbar-waiting: "<green>%time% seconds or %remaining_players% to start the game."
+  starting-phase: "<blue>The game will start in 15 seconds, be prepared..."
+  killed-by-player: "<white>%killer% <yellow>eliminated <red>%victim%<yellow>."
+  killed-unknown-reason: "<red>%victim% <yellow>was eliminated."
+  winner: "<gold>Congratulations! <Aqua>You are the winner!"
 
 #Waiting time to change to starting phase if minimum-players is reached
 waiting-time: 120
 #Minimum players required to start a game
-minimum-players: 4
+minimum-players: 2
 #Starting time phase time
 starting-time: 15
 #Skip to starting phase if that amount of players is reached
-skip-to-start-with: 6
+skip-to-start-with: 2
+#Time in seconds to enable pvp
+warmup-delay: 10
+#Total amount of time for phase 1 in seconds
+phase1-time: 120
+#Total amount of time for phase 2 in seconds
+phase2-time: 300
+
+entrance:
+  world: "world"
+  x: 0
+  y: 150
+  z: 0
+  yaw: 90
+  pitch: 90

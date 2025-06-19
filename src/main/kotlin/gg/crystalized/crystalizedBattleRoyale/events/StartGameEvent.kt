@@ -1,7 +1,9 @@
 package gg.crystalized.crystalizedBattleRoyale.events
 
+import gg.crystalized.crystalizedBattleRoyale.CrystalizedBattleRoyale
 import gg.crystalized.crystalizedBattleRoyale.Game
 import gg.crystalized.crystalizedBattleRoyale.enums.GameState
+import gg.crystalized.crystalizedBattleRoyale.utils.VisualUtils
 import org.bukkit.event.Event
 import org.bukkit.event.EventHandler
 import org.bukkit.event.HandlerList
@@ -25,7 +27,8 @@ class StartGameEvent(val game: Game): Event() {
                     game.giveItems(p)
                     game.teleportRandom(p)
                 }
-                game.status = GameState.WARMUP
+                game.startWarmup()
+                VisualUtils.sendMessage(CrystalizedBattleRoyale.instance.messages["grace-period"].toString(), game.players)
             }
 
         }

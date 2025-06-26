@@ -1,10 +1,10 @@
 package gg.crystalized.crystalizedBattleRoyale
 
 import gg.crystalized.crystalizedBattleRoyale.data.DataManager
+import gg.crystalized.crystalizedBattleRoyale.data.DroppingChest
+import gg.crystalized.crystalizedBattleRoyale.display.GameScoreboardManager
 import gg.crystalized.crystalizedBattleRoyale.enums.GameState
-import gg.crystalized.crystalizedBattleRoyale.tasks.StartingTask
-import gg.crystalized.crystalizedBattleRoyale.tasks.WaitingTask
-import gg.crystalized.crystalizedBattleRoyale.tasks.WarmupTask
+import gg.crystalized.crystalizedBattleRoyale.tasks.*
 import gg.crystalized.crystalizedBattleRoyale.utils.Utils
 import gg.crystalized.crystalizedBattleRoyale.utils.VisualUtils
 import org.bukkit.Location
@@ -25,11 +25,15 @@ class Game {
     val minimumPlayers = config.getInt("minimum-players")
     val skipToStart = config.getInt("skip-to-start-with")
     var waitingTime = config.getInt("waiting-time")
+    var timerTask = TimerTask(this).apply { runTaskTimer(CrystalizedBattleRoyale.instance, 20L, 20L) }
 
     var waitingTask: WaitingTask? = null
     var startingTask: StartingTask? = null
     var warmupTask: WarmupTask? = null
     val chests = DataManager.readChests().toMutableList()
+    var curentTime = waitingTime
+    val scoreboard = GameScoreboardManager(this)
+    val droppingChests = mutableListOf<DroppingChest>()
 
 
     fun startWarmup(){
@@ -62,6 +66,7 @@ class Game {
             VisualUtils.sendMessage(CrystalizedBattleRoyale.instance.messages["winner"].toString(), winner)
 
             //temporary...
+            timerTask.cancel()
             CrystalizedBattleRoyale.instance.game = null
         }
     }

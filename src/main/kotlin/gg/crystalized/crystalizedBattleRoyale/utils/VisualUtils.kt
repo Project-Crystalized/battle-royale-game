@@ -1,5 +1,6 @@
 package gg.crystalized.crystalizedBattleRoyale.utils
 
+import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.entity.Player
 
@@ -30,6 +31,10 @@ object VisualUtils {
         val finalMessage = MiniMessage.miniMessage().deserialize(tempMessage)
 
         players.sendMessage(finalMessage)
+    }
+
+    fun parseToComponent(string: String): Component{
+        return MiniMessage.miniMessage().deserialize(string)
     }
 
 }

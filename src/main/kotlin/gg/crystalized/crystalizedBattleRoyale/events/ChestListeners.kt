@@ -44,14 +44,18 @@ class ChestListeners: Listener {
             val loc = event.inventory.location?.toBlockLocation()
             game?.chests?.find { it.position == loc?.toBlockLocationData()}?.let { tierChest ->
                 when(tierChest.tier){
+                    //just for testing rn
                     1 -> {
-                        event.inventory.addItem(ItemStack.of(Material.APPLE).apply { itemMeta.itemName(Component.text("This is an apple :)")) })
+                        event.inventory.addItem(ItemStack.of(Material.APPLE))
                     }
                     2 -> {
-                        event.inventory.addItem(ItemStack.of(Material.GOLDEN_APPLE).apply { itemMeta.itemName(Component.text("This is a golden apple :o")) })
+                        event.inventory.addItem(ItemStack.of(Material.GOLDEN_APPLE))
                     }
                     3 -> {
-                        event.inventory.addItem(ItemStack.of(Material.IRON_INGOT).apply { itemMeta.itemName(Component.text("This is an iron bar :/")) })
+                        event.inventory.addItem(ItemStack.of(Material.IRON_INGOT))
+                    }
+                    4 -> {
+                        event.inventory.addItem(ItemStack.of(Material.EMERALD))
                     }
                 }
 

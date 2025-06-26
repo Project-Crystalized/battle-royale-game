@@ -42,15 +42,18 @@ class ChangeGameStatusEvent(val game: Game): Event() {
                                 CrystalizedBattleRoyale.instance.config.getInt("starting-time") * 20L
                             )
                         }
+                        game.curentTime = CrystalizedBattleRoyale.instance.config.getInt("starting-time")
                         game.startingTask = task
 
                     }
                     GameState.STARTING -> {
                         game.status = GameState.WARMUP
-
+                        game.curentTime = CrystalizedBattleRoyale.instance.config.getInt("warmup-delay")
 
                     }
-                    GameState.WARMUP -> TODO()
+                    GameState.WARMUP -> {
+                        game.curentTime = CrystalizedBattleRoyale.instance.config.getInt("phase1-delay")
+                    }
                     GameState.RUNNING1 -> TODO()
                     GameState.RUNNING2 -> TODO()
                     GameState.ENDING -> TODO()

@@ -23,6 +23,9 @@ phase1-time: 120
 #Total amount of time for phase 2 in seconds
 phase2-time: 300
 
+scoreboard:
+  sidebar-title: "Title content"
+
 entrance:
   world: "world"
   x: 0

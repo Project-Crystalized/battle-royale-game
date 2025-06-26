@@ -3,6 +3,7 @@ package gg.crystalized.crystalizedBattleRoyale.commands
 import gg.crystalized.crystalizedBattleRoyale.CrystalizedBattleRoyale
 import gg.crystalized.crystalizedBattleRoyale.Game
 import gg.crystalized.crystalizedBattleRoyale.events.PlayerJoinGameEvent
+import gg.crystalized.crystalizedBattleRoyale.events.StartDroppingChestEvent
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -26,6 +27,11 @@ class AdminCommands: CommandExecutor {
                             Bukkit.getPluginManager().callEvent(PlayerJoinGameEvent(game, sender))
                         }
 
+                    }
+                    "dropchest" -> {
+                        CrystalizedBattleRoyale.instance.game?.let { game ->
+                            Bukkit.getPluginManager().callEvent(StartDroppingChestEvent(game, sender.location))
+                        }
                     }
 
                     else -> {}

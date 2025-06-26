@@ -31,6 +31,9 @@ class CrystalizedBattleRoyale : JavaPlugin() {
         server.pluginManager.registerEvents(EliminatePlayerEvent, this)
         server.pluginManager.registerEvents(PlayerJoinGameEvent, this)
         server.pluginManager.registerEvents(StartGameEvent, this)
+        server.pluginManager.registerEvents(SpawnChestEvent, this)
+        server.pluginManager.registerEvents(StartDroppingChestEvent, this)
+
 
 
 

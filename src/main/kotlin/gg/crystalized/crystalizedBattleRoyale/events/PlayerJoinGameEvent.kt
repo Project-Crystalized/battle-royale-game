@@ -26,6 +26,7 @@ class PlayerJoinGameEvent(val game: Game, val player: Player) : Event() {
             val game = event.game
 
             game.players.add(player)
+            game.scoreboard.updatePlayers()
             VisualUtils.sendMessage(CrystalizedBattleRoyale.instance.messages["join-game"].toString(), player)
 
             if (game.status == GameState.WAITING && game.canStart()) {
